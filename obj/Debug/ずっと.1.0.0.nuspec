@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>ずっと</id>
+    <version>1.0.0</version>
+    <authors>ずっと</authors>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework="net5.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\marcb\Documents\Learning\ずっと\bin\Debug\net5.0\ずっと.runtimeconfig.json" target="lib\net5.0\ずっと.runtimeconfig.json" />
+    <file src="C:\Users\marcb\Documents\Learning\ずっと\bin\Debug\net5.0\ずっと.dll" target="lib\net5.0\ずっと.dll" />
+  </files>
+</package>

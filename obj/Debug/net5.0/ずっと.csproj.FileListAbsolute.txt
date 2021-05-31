@@ -1,0 +1,32 @@
+C:\Users\marcb\Google Drive\Learning\ずっと\bin\Debug\net5.0\ずっと.exe
+C:\Users\marcb\Google Drive\Learning\ずっと\bin\Debug\net5.0\ずっと.deps.json
+C:\Users\marcb\Google Drive\Learning\ずっと\bin\Debug\net5.0\ずっと.runtimeconfig.json
+C:\Users\marcb\Google Drive\Learning\ずっと\bin\Debug\net5.0\ずっと.runtimeconfig.dev.json
+C:\Users\marcb\Google Drive\Learning\ずっと\bin\Debug\net5.0\ずっと.dll
+C:\Users\marcb\Google Drive\Learning\ずっと\bin\Debug\net5.0\ref\ずっと.dll
+C:\Users\marcb\Google Drive\Learning\ずっと\bin\Debug\net5.0\ずっと.pdb
+C:\Users\marcb\Google Drive\Learning\ずっと\obj\Debug\net5.0\ずっと.csproj.AssemblyReference.cache
+C:\Users\marcb\Google Drive\Learning\ずっと\obj\Debug\net5.0\ずっと.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\marcb\Google Drive\Learning\ずっと\obj\Debug\net5.0\ずっと.AssemblyInfoInputs.cache
+C:\Users\marcb\Google Drive\Learning\ずっと\obj\Debug\net5.0\ずっと.AssemblyInfo.cs
+C:\Users\marcb\Google Drive\Learning\ずっと\obj\Debug\net5.0\ずっと.csproj.CoreCompileInputs.cache
+C:\Users\marcb\Google Drive\Learning\ずっと\obj\Debug\net5.0\ずっと.dll
+C:\Users\marcb\Google Drive\Learning\ずっと\obj\Debug\net5.0\ref\ずっと.dll
+C:\Users\marcb\Google Drive\Learning\ずっと\obj\Debug\net5.0\ずっと.pdb
+C:\Users\marcb\Google Drive\Learning\ずっと\obj\Debug\net5.0\ずっと.genruntimeconfig.cache
+C:\Users\marcb\Documents\Learning\ずっと\bin\Debug\net5.0\ずっと.exe
+C:\Users\marcb\Documents\Learning\ずっと\bin\Debug\net5.0\ずっと.deps.json
+C:\Users\marcb\Documents\Learning\ずっと\bin\Debug\net5.0\ずっと.runtimeconfig.json
+C:\Users\marcb\Documents\Learning\ずっと\bin\Debug\net5.0\ずっと.runtimeconfig.dev.json
+C:\Users\marcb\Documents\Learning\ずっと\bin\Debug\net5.0\ずっと.dll
+C:\Users\marcb\Documents\Learning\ずっと\bin\Debug\net5.0\ref\ずっと.dll
+C:\Users\marcb\Documents\Learning\ずっと\bin\Debug\net5.0\ずっと.pdb
+C:\Users\marcb\Documents\Learning\ずっと\obj\Debug\net5.0\ずっと.csproj.AssemblyReference.cache
+C:\Users\marcb\Documents\Learning\ずっと\obj\Debug\net5.0\ずっと.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\marcb\Documents\Learning\ずっと\obj\Debug\net5.0\ずっと.AssemblyInfoInputs.cache
+C:\Users\marcb\Documents\Learning\ずっと\obj\Debug\net5.0\ずっと.AssemblyInfo.cs
+C:\Users\marcb\Documents\Learning\ずっと\obj\Debug\net5.0\ずっと.csproj.CoreCompileInputs.cache
+C:\Users\marcb\Documents\Learning\ずっと\obj\Debug\net5.0\ずっと.dll
+C:\Users\marcb\Documents\Learning\ずっと\obj\Debug\net5.0\ref\ずっと.dll
+C:\Users\marcb\Documents\Learning\ずっと\obj\Debug\net5.0\ずっと.pdb
+C:\Users\marcb\Documents\Learning\ずっと\obj\Debug\net5.0\ずっと.genruntimeconfig.cache
