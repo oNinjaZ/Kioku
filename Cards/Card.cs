@@ -4,28 +4,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ずっと.Cards
+namespace Kioku.Cards
 {
 	public class Card
 	{
 		public string Meaning { get; set; }
+		public string Kunyomi { get; set; }
+		public string Onyomi { get; set; }
+		public string Character { get; set; }
+		public string Word { get; set; }
 		public string Id { get; set; }
+		public string Reading { get; set; }
 		private static int cardIdSeeder = 1;
-		private static int Count { get; set; }
+		public virtual string TypeOfCard { get; set; }
 		public Card()
 		{
 			Id = cardIdSeeder.ToString();
 			cardIdSeeder++;
-
 		}
 		public virtual void PrintCardInfo()
 		{
 			
 		}
-
-		public bool isFull()
+		public virtual void PrintCardInfoShort()
 		{
-			return (Count > 9);
+
+		}
+
+		public virtual void RemovalMessage()
+		{
+
 		}
 	}
 }
