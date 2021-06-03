@@ -1,4 +1,4 @@
-﻿using Kioku.Cards;
+﻿using Kioku.Decks;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,39 +9,21 @@ namespace Kioku.Creator
 {
 	public static class AddCard
 	{
-		public static void ChooseType(ref List<Card> cardList, string typeToEdit, bool isPremium)
+		public static void ChooseType(ref List<Deck> decks, string deckName)
 		{
-			switch (typeToEdit)
+			Console.WriteLine("What type of card would you like to add?\n" +
+				"Kanji, Radical, or Vocab?");
+			var typeToAdd = Console.ReadLine().ToUpper();
+			switch (typeToAdd)
 			{
 				case "KANJI":
-					if (cardList.Count(card => card.TypeOfCard == "Kanji") < 3 || isPremium)
-					{
-						AddKanji(ref cardList);
-					}
-					else
-					{
-						TypeOfCardFull("Kanji");
-					}
+					AddKanji(ref decks, deckName);
 					break;
 				case "VOCAB":
-					if (cardList.Count(card => card.TypeOfCard == "Vocab") < 3 || isPremium)
-					{
-						AddVocab(ref cardList);
-					}
-					else
-					{
-						TypeOfCardFull("Vocab");
-					}
+					AddVocab(ref decks, deckName);
 					break;
 				case "RADICAL":
-					if (cardList.Count(card => card.TypeOfCard == "Radical") < 3 || isPremium)
-					{
-						AddRadical(ref cardList);
-					}
-					else
-					{
-						TypeOfCardFull("Radical");
-					}
+					AddRadical(ref decks, deckName);
 					break;
 				default:
 					Console.WriteLine("Input Invalid");
@@ -49,7 +31,7 @@ namespace Kioku.Creator
 			}
 		}
 
-		private static void AddKanji(ref List<Card> cardList)
+		private static void AddKanji(ref List<Deck> decks, string deckName)
 		{
 			Console.WriteLine("Enter Character:");
 			string character = Console.ReadLine();
@@ -60,20 +42,19 @@ namespace Kioku.Creator
 			Console.WriteLine("Enter Meaning: ");
 			string meaning = Console.ReadLine();
 
-			cardList.Add(new Kanji(character, onyomi, kunyomi, meaning));
-			CardAddedMessage(cardList);
+			FindDeck(ref decks, deckName).AddCard(new Kanji(character, onyomi, kunyomi, meaning), character);
+
 		}
-		private static void AddRadical(ref List<Card> cardList)
+		private static void AddRadical(ref List<Deck> decks, string deckName)
 		{
 			Console.WriteLine("Enter Character:");
 			string character = Console.ReadLine();
 			Console.WriteLine("Enter Meaning:");
 			string meaning = Console.ReadLine();
-
-			cardList.Add(new Radical(character, meaning));
-			CardAddedMessage(cardList);
+			
+			FindDeck(ref decks, deckName).AddCard(new Radical(character, meaning), character);
 		}
-		private static void AddVocab(ref List<Card> cardList)
+		private static void AddVocab(ref List<Deck> decks, string deckName)
 		{
 			Console.WriteLine("Enter Word:");
 			string word = Console.ReadLine();
@@ -83,8 +64,7 @@ namespace Kioku.Creator
 			string meaning = Console.ReadLine();
 
 
-			cardList.Add(new Vocab(word, reading, meaning));
-			CardAddedMessage(cardList);
+			FindDeck(ref decks, deckName).AddCard(new Vocab(word, reading, meaning), word);
 		}
 		private static void TypeOfCardFull(string type)
 		{
@@ -95,11 +75,16 @@ namespace Kioku.Creator
 		{
 			Console.WriteLine($"Card Added! Total: {cardList.Count}");
 		}
-
-		private static bool AddSuccess(bool isSuccess)
+		private static Deck FindDeck(ref List<Deck> decks, string name)
 		{
-			return false;
+			return decks.Find(deck => deck.Name == name);
 		}
+
+		//private static bool AddSuccess(bool isSuccess)
+		//{
+		//	return false;
+		//}  //todo
+
 
 		//public static bool AskUpgrade()
 		//{

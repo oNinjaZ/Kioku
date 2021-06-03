@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Text.RegularExpressions;
 using Kioku.Accounts;
 
 namespace Kioku
@@ -13,66 +15,85 @@ namespace Kioku
 
 			while (runProgram)
 			{
-				Console.WriteLine(); //for space/program readability
+				Console.WriteLine();
 				Menu.Selection(ref ninjaz, out runProgram);
 			}
-			Console.WriteLine("");
+			Console.WriteLine();
 		}
 	}
 
 	public static class Menu
 	{
+		private static string userInput;
 		public static void Display()
 		{
-			Console.Write("  -----Menu-----\n  Commands:\n" +
-				"  [/add]: Add Card\n" +
-				"  [/edit]: Edit Card\n" +
-				"  [/del]: Delete Card\n" +
-				"  [/view]: View Deck\n" +
-				"  [/upgrade]: Go Premium\n" +
-				"  [/stats]: View Your Stats\n" +
-				"  [/exit]: Exit Program\n");
+			Console.Write("\n  -----Menu-----\n\n  Commands:\n\n" +
+				"  [add deck]\n" +
+				"  [add card]\n" +
+				"  [edit]     (reworking)\n" +
+				"  [del deck]     delete a deck\n" +
+				"  [del card]     delete a card\n" +
+				"  [view decks]\n" +
+				"  [view cards]\n" +
+				"  [review]     (N/A)\n" +
+				"  [upgrade]     go premium (笑)\n" +
+				"  [stats]\n" +
+				"  [exit]\n");
 		}
 
 		public static void Selection(ref User ninjaz, out bool runProgram)
 		{
 			runProgram = true;
-			string selection = "/" + Console.ReadLine().Substring(1).ToLower();
-			if (selection == "/add")
+			userInput = Console.ReadLine();
+			userInput = String.Concat(userInput.Where(c => !Char.IsWhiteSpace(c)));
+
+			if (userInput == "adddeck")
+			{
+				ninjaz.AddDeck();
+			}
+			else if (userInput == "addcard")
 			{
 				ninjaz.AddCard();
 			}
-			else if (selection == "/edit")
+			else if (userInput == "edit")
 			{
-				ninjaz.EditCard();
+				//ninjaz.EditCard
 			}
-			else if (selection == "/del")
+			else if (userInput == "deldeck")
+			{
+				ninjaz.DeleteADeck();
+			}
+			else if (userInput == "delcard")
 			{
 				ninjaz.RemoveCard();
 			}
-			else if (selection == "/view")
+			else if (userInput == "viewdecks")
+			{
+				ninjaz.ViewDecks();
+			}
+			else if (userInput == "viewcards")
 			{
 				ninjaz.ShowCards();
 			}
-			else if (selection == "/upgrade")
+			else if (userInput == "upgrade")
 			{
 				ninjaz.GoPremium();
 			}
-			else if (selection == "/stats")
+			else if (userInput == "stats")
 			{
-				ninjaz.ViewStats();
+				//ninjaz.ViewStats();
 			}
-			else if (selection == "/help") 
+			else if (userInput == "/help")
 			{
 				Menu.Display();
 			}
-			else if (selection == "/exit")
+			else if (userInput == "/exit")
 			{
 				runProgram = false;
 			}
 			else
 			{
-				Console.WriteLine($"{selection} is an invalid command...\nType /help for a list of all commands");
+				Console.WriteLine($"{userInput} is an invalid command...\nType /help for a list of all commands");
 			}
 		}
 	}

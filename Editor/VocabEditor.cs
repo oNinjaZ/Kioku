@@ -1,4 +1,4 @@
-﻿using Kioku.Cards;
+﻿using Kioku.Decks;
 using System;
 using System.Collections.Generic;
 using System.Linq;

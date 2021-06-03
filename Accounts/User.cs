@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Kioku.Cards;
-
+using Kioku.Decks;
+using Kioku.UI;
+using Kioku.Stats;
+using Kioku.Deletion;
 
 namespace Kioku.Accounts
 {
@@ -11,31 +13,8 @@ namespace Kioku.Accounts
 		public string UserName { get; set; }
 		public string Id { get; }
 		public int Level { get; set; }
-		private List<Card> cardList = new List<Card>();
+		private List<Deck> deckList = new();
 		public bool IsPremium { get; set; }
-
-		public int KanjiCount
-		{
-			get
-			{
-				return cardList.Count(card => card.TypeOfCard == "Kanji");
-			}
-		}
-		public int RadicalCount
-		{
-			get
-			{
-				return cardList.Count(card => card.TypeOfCard == "Radical");
-			}
-		}
-		public int VocabCount
-		{
-			get
-			{
-				return cardList.Count(card => card.TypeOfCard == "Vocab");
-			}
-		}
-
 
 		public User(string username)
 		{
@@ -44,22 +23,52 @@ namespace Kioku.Accounts
 			Level = 0;
 		}
 
+		public void AddDeck()
+		{
+			Creator.AddDeck.Add(ref deckList);
+		}
+
 		public void AddCard()
 		{
-			Console.WriteLine("Select card type: [Kanji]  [Vocab]  [Radical]");
-			string answer = Console.ReadLine().ToUpper();
-			Creator.AddCard.ChooseType(ref cardList, answer, IsPremium);
+			if (deckList.Any())
+			{
+				Display.DisplayDecksShort(deckList);
+				Console.WriteLine("Type name of deck you'd like to add card to...");
+				string name = Console.ReadLine();
+				if (deckList.Any(deck => deck.Name == name))
+				{
+					Creator.AddCard.ChooseType(ref deckList, name);
+				}
+				else
+				{
+					Console.WriteLine("Deck does not exist");
+				}
+			}
+			else
+			{
+				Console.WriteLine("Create a deck first with [/add deck]");
+			}
 		}
+
+		public void DeleteADeck()
+		{
+			if (deckList.Any())
+			{
+				DeleteDeck.Delete(ref deckList);
+			}
+			else
+			{
+				Console.WriteLine("No deck to delete...");
+			}
+		}
+
 
 		public void RemoveCard()
 		{
-			if (cardList.Any())
+			if (OvrStats.TotalCards(deckList) > 0)
 			{
-				CardPropertyShort();
-				Console.WriteLine("Enter ID of card you want to remove...");
-				int id = int.Parse(Console.ReadLine());
-				FindCard(id).RemovalMessage();
-				cardList.Remove(FindCard(id));
+				Display.DisplayDecksShort(deckList);
+				DeleteCard.Delete(ref deckList);
 			}
 			else
 			{
@@ -67,18 +76,27 @@ namespace Kioku.Accounts
 			}
 		}
 
-		public void ShowCards()
+		public void ViewDecks()
 		{
-			if (cardList.Any())
+			if (deckList.Any())
 			{
-				foreach (var item in cardList)
-				{
-					item.PrintCardInfo();
-				}
+				Display.DisplayDecksShort(deckList);
 			}
 			else
 			{
-				Console.WriteLine("List Empty...(No Cards To Show)");
+				Console.WriteLine("You have 0 decks...create one first using [/add deck]");
+			}
+		}
+
+		public void ShowCards()
+		{
+			if (OvrStats.TotalCards(deckList) != 0)
+			{
+				Display.ShowAllCards(deckList);
+			}
+			else
+			{
+				Console.WriteLine("You have 0 cards...");
 			}
 		}
 
@@ -88,49 +106,37 @@ namespace Kioku.Accounts
 			Console.WriteLine($"Congradulations! {UserName} is a premium user as of {DateTime.Now}");
 		}
 
-		public void EditCard()
-		{
-			if (cardList.Any())
-			{
-				CardPropertyShort();
-				Console.WriteLine("Select Card ID from List Above:");
-				int cardId = int.Parse(Console.ReadLine());
-				if (FindCard(cardId).TypeOfCard == "Kanji")
-				{
-					Editor.KanjiEditor.FieldSelector(ref cardList, cardId);
-				}
-				if (FindCard(cardId).TypeOfCard == "Radical")
-				{
-					Editor.RadicalEditor.FieldSelector(ref cardList, cardId);
-				}
-				if (FindCard(cardId).TypeOfCard == "Vocab")
-				{
-					Editor.VocabEditor.FieldSelector(ref cardList, cardId);
-				}
-			}
-			else
-			{
-				Console.WriteLine("List Empty...(No Cards To Edit)");
-			}
-		}
+		//public void EditCard()
+		//{
+		//	if (cardList.Any())
+		//	{
+		//		CardPropertyShort();
+		//		Console.WriteLine("Select Card ID from List Above:");
+		//		int cardId = int.Parse(Console.ReadLine());
+		//		if (FindCard(cardId).TypeOfCard == "Kanji")
+		//		{
+		//			Editor.KanjiEditor.FieldSelector(ref cardList, cardId);
+		//		}
+		//		if (FindCard(cardId).TypeOfCard == "Radical")
+		//		{
+		//			Editor.RadicalEditor.FieldSelector(ref cardList, cardId);
+		//		}
+		//		if (FindCard(cardId).TypeOfCard == "Vocab")
+		//		{
+		//			Editor.VocabEditor.FieldSelector(ref cardList, cardId);
+		//		}
+		//	}
+		//	else
+		//	{
+		//		Console.WriteLine("List Empty...(No Cards To Edit)");
+		//	}
+		//}
 
-		private Card FindCard(int id)
-		{
-			return cardList.Find(card => (card.Id == id.ToString()));
-		}
 
-		private void CardPropertyShort()
-		{
-			foreach (var item in cardList)
-			{
-				item.PrintCardInfoShort();
-			}
-		}
-
-		public void ViewStats()
-		{
-			Console.WriteLine($"\nTotal Cards in {UserName}'s Deck...\nRadicals: {RadicalCount}\nKanji: {KanjiCount}\nVocab: {VocabCount}");
-		}
+		//public void ViewStats()
+		//{
+		//	Console.WriteLine($"\nTotal Cards in {UserName}'s Deck...\nRadicals: {RadicalCount}\nKanji: {KanjiCount}\nVocab: {VocabCount}");
+		//}
 
 	}
 }
