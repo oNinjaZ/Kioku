@@ -27,7 +27,7 @@ namespace Kioku
 		private static string userInput;
 		public static void Display()
 		{
-			Console.Write("\n  -----Menu-----\n\n  Commands:\n\n" +
+			Console.Write("\n  -----きおく-----\n\n  Commands:\n\n" +
 				"  [add deck]\n" +
 				"  [add card]\n" +
 				"  [edit]     (reworking)\n" +
@@ -38,7 +38,8 @@ namespace Kioku
 				"  [review]     (N/A)\n" +
 				"  [upgrade]     go premium (笑)\n" +
 				"  [stats]\n" +
-				"  [exit]\n");
+				"  [exit]\n\n" +
+				"  [help]    view command list");
 		}
 
 		public static void Selection(ref User ninjaz, out bool runProgram)

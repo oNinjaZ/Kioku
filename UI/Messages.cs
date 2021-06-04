@@ -8,17 +8,12 @@ namespace Kioku.UI
 {
 	public static class Messages
 	{
-		public static void KanjiAdded()
+		private static void EditOptions()
 		{
-
-		}
-		public static void RadicalAdded()
-		{
-
-		}
-		public static void VocabAdded()
-		{
-
+			Console.WriteLine("  === Editor ===\n" +
+				"  1) Rename a deck\n" +
+				"  2) Move card from one deck to another\n" +
+				"  3) Edit card");
 		}
 	}
 }

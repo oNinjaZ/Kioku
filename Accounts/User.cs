@@ -89,7 +89,7 @@ namespace Kioku.Accounts
 		}
 
 		public void ShowCards()
-		{
+		{	
 			if (OvrStats.TotalCards(deckList) != 0)
 			{
 				Display.ShowAllCards(deckList);
@@ -106,7 +106,19 @@ namespace Kioku.Accounts
 			Console.WriteLine($"Congradulations! {UserName} is a premium user as of {DateTime.Now}");
 		}
 
-		//public void EditCard()
+		public void Edit()
+		{
+			if (deckList.Any())
+			{
+				string answer;
+			}
+			else
+			{
+				Console.WriteLine("Nothing to edit...create a card deck with [add deck]");
+			}
+		}
+
+		//private void EditCard()
 		//{
 		//	if (cardList.Any())
 		//	{
@@ -131,6 +143,8 @@ namespace Kioku.Accounts
 		//		Console.WriteLine("List Empty...(No Cards To Edit)");
 		//	}
 		//}
+
+
 
 
 		//public void ViewStats()
