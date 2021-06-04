@@ -1,1 +1,1 @@
-this is my first c# practice project so my code is terrible rip
+this is my first practice project so its very messy and unoptimized
