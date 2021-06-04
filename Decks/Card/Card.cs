@@ -12,7 +12,6 @@ namespace Kioku.Decks
 		public string Kunyomi { get; set; }
 		public string Onyomi { get; set; }
 		public string Character { get; set; }
-		public string Word { get; set; }
 		public string Id { get; set; }
 		public string Reading { get; set; }
 		private static int cardIdSeeder = 1;

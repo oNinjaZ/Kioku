@@ -24,7 +24,7 @@ namespace Kioku.UI
 		public static void DisplayCardsBeforeDelete(List<Deck> decks, string deckName, out int cardsToDelete)
 		{
 			cardsToDelete = FindDeck(decks, deckName).CardCount;
-			FindDeck(decks, deckName).PrintCards(); //to fix, MAKE SHORT
+			FindDeck(decks, deckName).PrintCardInfoShort(); //to fix, MAKE SHORT
 		}
 		public static void ShowAllCards(List<Deck> deckList)
 		{

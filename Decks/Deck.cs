@@ -55,7 +55,15 @@ namespace Kioku.Decks
 
 		public void RemoveCard(string id)
 		{
-			cardList.Remove(cardList.Find(card => card.Id == id));
+			if (CardCheck(cardList, id))
+			{
+				Console.WriteLine(cardList.Find(card => card.Id == id).Character);
+				cardList.Remove(cardList.Find(card => card.Id == id));
+			}
+			else
+			{
+				Console.WriteLine($"Error: card {id} doesn't exist");
+			}
 		}
 		public void PrintCards()
 		{
@@ -65,9 +73,22 @@ namespace Kioku.Decks
 			}
 		}
 
+		public void PrintCardInfoShort()
+		{
+			foreach (var item in cardList)
+			{
+				item.PrintCardInfoShort();
+			}
+		}
+
+
 		public void PrintDeckInfoShort()
 		{
 			Console.WriteLine($"Deck Name: {Name}  Cards: {CardCount}\n");
+		}
+		private bool CardCheck(List<Card> cards, string id)
+		{
+			return this.cardList.Any(cards => cards.Id == id) ? true : false;
 		}
 	}
 }

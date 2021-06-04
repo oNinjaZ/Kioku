@@ -84,7 +84,7 @@ namespace Kioku.Accounts
 			}
 			else
 			{
-				Console.WriteLine("You have 0 decks...create one first using [/add deck]");
+				Console.WriteLine("You have 0 decks...create one first using [add deck]");
 			}
 		}
 
@@ -110,7 +110,6 @@ namespace Kioku.Accounts
 		{
 			if (deckList.Any())
 			{
-				string answer;
 			}
 			else
 			{

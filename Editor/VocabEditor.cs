@@ -32,7 +32,7 @@ namespace Kioku.Editor
 		public static void Word(ref List<Card> cardList, int id)
 		{
 			Console.WriteLine("Enter New Word");
-			FindCard(cardList, id).Word = Console.ReadLine();
+			FindCard(cardList, id).Character = Console.ReadLine();
 		}
 		public static void Reading(ref List<Card> cardList, int id)
 		{

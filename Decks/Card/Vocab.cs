@@ -11,7 +11,7 @@ namespace Kioku.Decks
 		public override string TypeOfCard { get; set; } = "Vocab";
 		public Vocab(string word, string reading, string meaning)
 		{
-			Word = word;
+			Character = word;
 			Reading = reading;
 			Meaning = meaning;
 		}
@@ -19,7 +19,7 @@ namespace Kioku.Decks
 		public override void PrintCardInfo()
 		{
 			Console.WriteLine($"\nId: {Id}\n" +
-				$"Vocab: {Word}\n" +
+				$"Vocab: {Character}\n" +
 				$"Reading: {Reading}\n" +
 				$"Meaning: {Meaning}");
 		}
@@ -27,12 +27,12 @@ namespace Kioku.Decks
 		public override void PrintCardInfoShort()
 		{
 			Console.WriteLine($"\nId: {Id}\n" +
-				$"Vocab: {Word}\n");
+				$"Vocab: {Character}\n");
 		}
 
 		public override void RemovalMessage()
 		{
-			Console.WriteLine($"Successfully deleted {Word} [Card ID: {Id}] ");
+			Console.WriteLine($"Successfully deleted {Character} [Card ID: {Id}] ");
 		}
 	}
 }
