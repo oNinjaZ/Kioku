@@ -17,20 +17,34 @@ namespace Kioku.UI
 			}
 		}
 
-		public static void DisplayCardsShort(List<Deck> decks, string deckName)
+		public static void DisplayCardsShort(Deck deck)
 		{
-			FindDeck(decks, deckName).PrintCards(); //to fix, MAKE SHORT
+			deck.PrintCardInfoShort();
+		}
+
+		public static void DisplayEditedCard(Card card)
+		{
+			Console.WriteLine("Edit successful!\n" +
+				$"   === Card Info ===");
+			card.PrintCardInfo();
 		}
 		public static void DisplayCardsBeforeDelete(List<Deck> decks, string deckName, out int cardsToDelete)
 		{
 			cardsToDelete = FindDeck(decks, deckName).CardCount;
-			FindDeck(decks, deckName).PrintCardInfoShort(); //to fix, MAKE SHORT
+			FindDeck(decks, deckName).PrintCardInfoShort();
+		}
+		public static void DisplayCardsBeforeDelete(Deck deck)
+		{
+			deck.PrintCardInfoShort();
 		}
 		public static void ShowAllCards(List<Deck> deckList)
 		{
+			Console.WriteLine();
 			foreach (var item in deckList)
 			{
-				item.PrintCards();
+				Console.WriteLine($"=== Deck [{item.Name}] ===");
+				item.PrintCardsHorizontal();
+				Console.WriteLine();
 			}
 		}
 

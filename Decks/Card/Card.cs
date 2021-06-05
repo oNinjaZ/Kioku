@@ -34,5 +34,9 @@ namespace Kioku.Decks
 		{
 
 		}
+
+		public virtual void PrintHorizontal()
+		{
+		}
 	}
 }

@@ -5,6 +5,7 @@ using Kioku.Decks;
 using Kioku.UI;
 using Kioku.Stats;
 using Kioku.Deletion;
+using Kioku.Editor;
 
 namespace Kioku.Accounts
 {
@@ -33,11 +34,12 @@ namespace Kioku.Accounts
 			if (deckList.Any())
 			{
 				Display.DisplayDecksShort(deckList);
-				Console.WriteLine("Type name of deck you'd like to add card to...");
-				string name = Console.ReadLine();
-				if (deckList.Any(deck => deck.Name == name))
+				Console.WriteLine("Type ID of deck you'd like to add card to...");
+				string input = Console.ReadLine();
+				if (deckList.Any(deck => deck.Id == input))
 				{
-					Creator.AddCard.ChooseType(ref deckList, name);
+					var deck = deckList.Find(deck => deck.Id == input);
+					Creator.AddCard.ChooseType(deck);
 				}
 				else
 				{
@@ -54,7 +56,7 @@ namespace Kioku.Accounts
 		{
 			if (deckList.Any())
 			{
-				DeleteDeck.Delete(ref deckList);
+				DeckEditor.SelectDeckToDelete(deckList);
 			}
 			else
 			{
@@ -67,8 +69,7 @@ namespace Kioku.Accounts
 		{
 			if (OvrStats.TotalCards(deckList) > 0)
 			{
-				Display.DisplayDecksShort(deckList);
-				DeleteCard.Delete(ref deckList);
+				DeleteCard.SelectDeck(deckList);
 			}
 			else
 			{
@@ -88,7 +89,7 @@ namespace Kioku.Accounts
 			}
 		}
 
-		public void ShowCards()
+		public void ShowAllCards()
 		{	
 			if (OvrStats.TotalCards(deckList) != 0)
 			{
@@ -108,41 +109,8 @@ namespace Kioku.Accounts
 
 		public void Edit()
 		{
-			if (deckList.Any())
-			{
-			}
-			else
-			{
-				Console.WriteLine("Nothing to edit...create a card deck with [add deck]");
-			}
+			EditorMenu.Menu(deckList);
 		}
-
-		//private void EditCard()
-		//{
-		//	if (cardList.Any())
-		//	{
-		//		CardPropertyShort();
-		//		Console.WriteLine("Select Card ID from List Above:");
-		//		int cardId = int.Parse(Console.ReadLine());
-		//		if (FindCard(cardId).TypeOfCard == "Kanji")
-		//		{
-		//			Editor.KanjiEditor.FieldSelector(ref cardList, cardId);
-		//		}
-		//		if (FindCard(cardId).TypeOfCard == "Radical")
-		//		{
-		//			Editor.RadicalEditor.FieldSelector(ref cardList, cardId);
-		//		}
-		//		if (FindCard(cardId).TypeOfCard == "Vocab")
-		//		{
-		//			Editor.VocabEditor.FieldSelector(ref cardList, cardId);
-		//		}
-		//	}
-		//	else
-		//	{
-		//		Console.WriteLine("List Empty...(No Cards To Edit)");
-		//	}
-		//}
-
 
 
 

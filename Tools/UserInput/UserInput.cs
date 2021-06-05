@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Kioku.Editor
+namespace Kioku.Tools.UserInput
 {
-	public static class DeckEdit
+	class UserInput
 	{
-
 	}
 }

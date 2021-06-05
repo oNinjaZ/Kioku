@@ -31,15 +31,15 @@ namespace Kioku
 				"  [add deck]\n" +
 				"  [add card]\n" +
 				"  [edit]     (reworking)\n" +
-				"  [del deck]     delete a deck\n" +
-				"  [del card]     delete a card\n" +
+				"  [del deck]     \n" +
+				"  [del card]     \n" +
 				"  [view decks]\n" +
 				"  [view cards]\n" +
 				"  [review]     (N/A)\n" +
 				"  [upgrade]     go premium (笑)\n" +
-				"  [stats]\n" +
-				"  [exit]\n\n" +
-				"  [help]    view command list");
+				"  [stats]    (N/A)\n\n" +
+				"  [exit]     close program\n" +
+				"  [help]    view command list\n\n");
 		}
 
 		public static void Selection(ref User ninjaz, out bool runProgram)
@@ -58,7 +58,7 @@ namespace Kioku
 			}
 			else if (userInput == "edit")
 			{
-				//ninjaz.EditCard
+				ninjaz.Edit();
 			}
 			else if (userInput == "deldeck")
 			{
@@ -74,7 +74,7 @@ namespace Kioku
 			}
 			else if (userInput == "viewcards")
 			{
-				ninjaz.ShowCards();
+				ninjaz.ShowAllCards();
 			}
 			else if (userInput == "upgrade")
 			{
@@ -84,11 +84,11 @@ namespace Kioku
 			{
 				//ninjaz.ViewStats();
 			}
-			else if (userInput == "/help")
+			else if (userInput == "help")
 			{
 				Menu.Display();
 			}
-			else if (userInput == "/exit")
+			else if (userInput == "exit")
 			{
 				runProgram = false;
 			}

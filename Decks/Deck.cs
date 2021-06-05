@@ -11,7 +11,7 @@ namespace Kioku.Decks
 		public string Name { get; set; }
 		public string Id { get; set; }
 		private static int deckIdSeeder = 1;
-		private List<Card> cardList = new();
+		public List<Card> cardList = new();
 		public int CardCount
 		{
 			get
@@ -65,11 +65,11 @@ namespace Kioku.Decks
 				Console.WriteLine($"Error: card {id} doesn't exist");
 			}
 		}
-		public void PrintCards()
+		public void PrintCardsHorizontal()
 		{
 			foreach (var item in cardList)
 			{
-				item.PrintCardInfo();
+				item.PrintHorizontal();
 			}
 		}
 
@@ -84,7 +84,7 @@ namespace Kioku.Decks
 
 		public void PrintDeckInfoShort()
 		{
-			Console.WriteLine($"Deck Name: {Name}  Cards: {CardCount}\n");
+			Console.WriteLine($"ID: {Id}  Deck name: {Name}  Cards: {CardCount}\n");
 		}
 		private bool CardCheck(List<Card> cards, string id)
 		{
