@@ -35,9 +35,9 @@ namespace Kioku.Decks
 			Console.WriteLine($"Successfully deleted {Character} [Card ID: {Id}] ");
 		}
 
-		public override void PrintHorizontal()
+		public override void PrintCardInfoNoId()
 		{
-			Console.WriteLine($"Vocab: {Character}  Reading: {Reading}  Meaning: {Meaning}");
+			Console.WriteLine($"Vocab: {Character}");
 		}
 	}
 }

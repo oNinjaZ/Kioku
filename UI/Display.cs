@@ -35,16 +35,19 @@ namespace Kioku.UI
 		}
 		public static void DisplayCardsBeforeDelete(Deck deck)
 		{
-			deck.PrintCardInfoShort();
+			deck.PrintCardNoId();
 		}
 		public static void ShowAllCards(List<Deck> deckList)
 		{
 			Console.WriteLine();
 			foreach (var item in deckList)
 			{
-				Console.WriteLine($"=== Deck [{item.Name}] ===");
-				item.PrintCardsHorizontal();
-				Console.WriteLine();
+				if(item.CardCount != 0)
+				{
+					Console.WriteLine($"=== Deck [{item.Name}] ===");
+					item.PrintCardNoId();
+					Console.WriteLine();
+				}
 			}
 		}
 

@@ -81,6 +81,14 @@ namespace Kioku.Decks
 			}
 		}
 
+		public void PrintCardNoId()
+		{
+			foreach (var item in cardList)
+			{
+				item.PrintCardInfoNoId();
+			}
+		}
+
 
 		public void PrintDeckInfoShort()
 		{

@@ -37,5 +37,9 @@ namespace Kioku.Decks
 		{
 			Console.WriteLine($"Kanji: {Character}  Kunyomi: {Kunyomi}  Onyomi: {Onyomi}  Meaning: {Meaning}");
 		}
+		public override void PrintCardInfoNoId()
+		{
+			Console.WriteLine($"Kanji: {Character}");
+		}
 	}
 }

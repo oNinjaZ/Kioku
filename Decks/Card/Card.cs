@@ -38,5 +38,10 @@ namespace Kioku.Decks
 		public virtual void PrintHorizontal()
 		{
 		}
+
+		public virtual void PrintCardInfoNoId()
+		{
+			
+		}
 	}
 }

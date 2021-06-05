@@ -37,5 +37,10 @@ namespace Kioku.Decks
 		{
 			Console.WriteLine($"Radical: {Character}  Meaning: {Meaning}");
 		}
+
+		public override void PrintCardInfoNoId()
+		{
+			Console.WriteLine($"Radical: {Character}");
+		}
 	}
 }
