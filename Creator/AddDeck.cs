@@ -9,7 +9,7 @@ namespace Kioku.Creator
 {
 	public static class AddDeck
 	{
-		public static void Add(ref List<Deck> deck)
+		public static void Add(List<Deck> deck)
 		{
 			Console.WriteLine("Enter Deck Name....");
 			string deckName = Console.ReadLine();

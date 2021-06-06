@@ -26,7 +26,7 @@ namespace Kioku.Accounts
 
 		public void AddDeck()
 		{
-			Creator.AddDeck.Add(ref deckList);
+			Creator.AddDeck.Add(deckList);
 		}
 
 		public void AddCard()
