@@ -94,6 +94,17 @@ namespace Kioku.Decks
 		{
 			Console.WriteLine($"ID: {Id}  Deck name: {Name}  Cards: {CardCount}\n");
 		}
+
+		public void PrintDeckInfoNoId()
+		{
+			string cardPlural;
+			if (cardList.Count > 1)
+			{
+				cardPlural = "cards";
+			}
+			else cardPlural = "card";
+			Console.WriteLine($"{Name}: {CardCount} {cardPlural}");
+		}
 		private bool CardCheck(List<Card> cards, string id)
 		{
 			return this.cardList.Any(cards => cards.Id == id) ? true : false;

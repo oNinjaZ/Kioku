@@ -17,6 +17,15 @@ namespace Kioku.UI
 			}
 		}
 
+		public static void DisplayDecksNoId(List<Deck> decks, string user)
+		{
+			Console.WriteLine($"\n  === {user}'s Deck list ===\n  ");
+			foreach (var deck in decks)
+			{
+				deck.PrintDeckInfoNoId();
+			}
+		}
+
 		public static void DisplayCardsShort(Deck deck)
 		{
 			deck.PrintCardInfoShort();

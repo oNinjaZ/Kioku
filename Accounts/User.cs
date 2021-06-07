@@ -81,7 +81,7 @@ namespace Kioku.Accounts
 		{
 			if (deckList.Any())
 			{
-				Display.DisplayDecksShort(deckList);
+				Display.DisplayDecksNoId(deckList, UserName);
 			}
 			else
 			{
@@ -113,11 +113,6 @@ namespace Kioku.Accounts
 		}
 
 
-
-		//public void ViewStats()
-		//{
-		//	Console.WriteLine($"\nTotal Cards in {UserName}'s Deck...\nRadicals: {RadicalCount}\nKanji: {KanjiCount}\nVocab: {VocabCount}");
-		//}
 
 	}
 }
