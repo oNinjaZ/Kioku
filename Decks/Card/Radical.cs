@@ -8,11 +8,11 @@ namespace Kioku.Decks
 {
 	class Radical : Card
 	{
-		public override string TypeOfCard { get; set; } = "Radical";
 		public Radical(string character, string meaning)
 		{
 			Character = character;
 			Meaning = meaning;
+			TypeOfCard = "Radical";
 		}
 
 		public override void PrintCardInfo()

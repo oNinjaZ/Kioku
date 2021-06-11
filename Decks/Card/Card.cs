@@ -15,7 +15,7 @@ namespace Kioku.Decks
 		public string Id { get; set; }
 		public string Reading { get; set; }
 		private static int cardIdSeeder = 1;
-		public virtual string TypeOfCard { get; set; }
+		public string TypeOfCard { get; init; }
 		public Card()
 		{
 			Id = cardIdSeeder.ToString();

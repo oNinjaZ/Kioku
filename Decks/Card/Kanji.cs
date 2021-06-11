@@ -8,13 +8,13 @@ namespace Kioku.Decks
 {
 	class Kanji : Card
 	{
-		public override string TypeOfCard { get; set; } = "Kanji";
 		public Kanji(string character, string onyomi, string kunyomi, string meaning)
 		{
 			Character = character;
 			Onyomi = onyomi;
 			Kunyomi = kunyomi;
 			Meaning = meaning;
+			TypeOfCard = "Kanji";
 		}
 		public override void PrintCardInfo()
 		{

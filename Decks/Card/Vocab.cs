@@ -8,12 +8,12 @@ namespace Kioku.Decks
 {
 	class Vocab : Card
 	{
-		public override string TypeOfCard { get; set; } = "Vocab";
 		public Vocab(string word, string reading, string meaning)
 		{
 			Character = word;
 			Reading = reading;
 			Meaning = meaning;
+			TypeOfCard = "Vocab";
 		}
 
 		public override void PrintCardInfo()
@@ -38,6 +38,11 @@ namespace Kioku.Decks
 		public override void PrintCardInfoNoId()
 		{
 			Console.WriteLine($"Vocab: {Character}");
+		}
+
+		public override void PrintHorizontal()
+		{
+			Console.WriteLine($"Vocab: {Character}  Reading: {Reading}  Meaning: {Meaning}");
 		}
 	}
 }
