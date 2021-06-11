@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Kioku.Decks
 {
-	public class Card
+	public abstract class Card
 	{
 		public string Meaning { get; set; }
 		public string Kunyomi { get; set; }
@@ -21,27 +21,10 @@ namespace Kioku.Decks
 			Id = cardIdSeeder.ToString();
 			cardIdSeeder++;
 		}
-		public virtual void PrintCardInfo()
-		{
-			
-		}
-		public virtual void PrintCardInfoShort()
-		{
-
-		}
-
-		public virtual void RemovalMessage()
-		{
-
-		}
-
-		public virtual void PrintHorizontal()
-		{
-		}
-
-		public virtual void PrintCardInfoNoId()
-		{
-			
-		}
+		public abstract void PrintCardInfo();
+		public abstract void PrintCardInfoShort();
+		public abstract void RemovalMessage();
+		public abstract void PrintHorizontal();
+		public abstract void PrintCardInfoNoId();
 	}
 }
